@@ -1,19 +1,19 @@
-version = '0.13.0'
+version = '3.0.0'
 
 Pod::Spec.new do |s|
-  s.name         = 'TrustWalletCore'
+  s.name         = 'PPTrustWalletCore'
   s.version      = version
   s.summary      = 'Trust Wallet core data structures and algorithms.'
-  s.homepage     = 'https://github.com/TrustWallet/wallet-core'
+  s.homepage     = 'https://github.com/taha-husain/pp-wallet-core'
   s.license      = 'MIT'
-  s.authors      = { 'Alejandro Isaza' => 'al@isaza.ca' }
+  s.authors      = { 'Taha Husain' => 'tahahussain18@gmail.com' }
 
   s.ios.deployment_target = '11.0'
   s.osx.deployment_target = '10.12'
   s.swift_version = '5.1'
 
   s.source = {
-    git: 'git@github.com:TrustWallet/wallet-core.git',
+    git: 'git@github.com:taha-husain/pp-wallet-core.git',
     tag: version,
     submodules: true
   }
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.subspec 'Types' do |ss|
-    ss.source_files = 
+    ss.source_files =
       'swift/Sources/Generated/Enums/*.swift',
       'swift/Sources/Generated/Protobuf/*.swift'
     ss.dependency 'SwiftProtobuf'
@@ -128,14 +128,14 @@ Pod::Spec.new do |s|
       'src/proto/*.proto'
     ss.xcconfig = {
       'HEADER_SEARCH_PATHS' => '$(inherited) ' \
-        '${PODS_ROOT}/TrustWalletCore/src ' \
-        '${PODS_ROOT}/TrustWalletCore/trezor-crypto/src',
+        '${PODS_ROOT}/PPTrustWalletCore/src ' \
+        '${PODS_ROOT}/PPTrustWalletCore/trezor-crypto/src',
       'SYSTEM_HEADER_SEARCH_PATHS' => '$(inherited) ' \
         '/usr/local/include' \
-        '${PODS_ROOT}/TrustWalletCore/include ' \
-        '${PODS_ROOT}/TrustWalletCore/trezor-crypto/include ' \
-        "${PODS_ROOT}/TrustWalletCore/#{protobuf_source_dir}/src " \
-        "${PODS_ROOT}/TrustWalletCore/#{include_dir} ",
+        '${PODS_ROOT}/PPTrustWalletCore/include ' \
+        '${PODS_ROOT}/PPTrustWalletCore/trezor-crypto/include ' \
+        "${PODS_ROOT}/PPTrustWalletCore/#{protobuf_source_dir}/src " \
+        "${PODS_ROOT}/PPTrustWalletCore/#{include_dir} ",
       'GCC_WARN_UNUSED_FUNCTION' => 'NO',
       'GCC_WARN_64_TO_32_BIT_CONVERSION' => 'NO',
       'CLANG_CXX_LANGUAGE_STANDARD' => 'c++17',
