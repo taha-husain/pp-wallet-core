@@ -1,7 +1,7 @@
 version = '3.0.0'
 
 Pod::Spec.new do |s|
-  s.name         = 'PPTrustWalletCore'
+  s.name         = 'CTTrustWalletCore'
   s.version      = version
   s.summary      = 'Trust Wallet core data structures and algorithms.'
   s.homepage     = 'https://github.com/taha-husain/pp-wallet-core'

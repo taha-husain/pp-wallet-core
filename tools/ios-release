@@ -6,37 +6,37 @@
 require 'open3'
 require 'tempfile'
 
-version = "3.0.0"
+version = "3.0.1"
 
-# First build
-puts 'Building...'
-_, stderr, status = Open3.capture3('tools/ios-build')
-if status != 0
-  STDERR.puts stderr
-  exit 1
-end
+# # First build
+# puts 'Building...'
+# _, stderr, status = Open3.capture3('tools/ios-build')
+# if status != 0
+#   STDERR.puts stderr
+#   exit 1
+# end
 
-# Make archive
-puts 'Archiving...'
-includes = Dir.glob('include/**/*.h') + Dir.glob('lib/**/*.{h,hpp}')
-sources = Dir.glob('swift/Sources/**/*.{swift,h,m}')
-libs = Dir.glob('build/ios/*.a')
-files = includes + sources + libs
-file_name = "PPTrustWalletCore-iOS-2.0.4.zip"
-_, stderr, status = Open3.capture3('zip', file_name, *files)
-if status != 0
-  STDERR.puts stderr
-  exit 1
-end
+# # Make archive
+# puts 'Archiving...'
+# includes = Dir.glob('include/**/*.h') + Dir.glob('lib/**/*.{h,hpp}')
+# sources = Dir.glob('swift/Sources/**/*.{swift,h,m}')
+# libs = Dir.glob('build/ios/*.a')
+# files = includes + sources + libs
+# file_name = "PPTrustWalletCore-iOS-2.0.4.zip"
+# _, stderr, status = Open3.capture3('zip', file_name, *files)
+# if status != 0
+#   STDERR.puts stderr
+#   exit 1
+# end
 
-# Upload archive
-system("aws s3 cp #{file_name} s3://wallet-core/ --acl public-read")
+# # Upload archive
+# system("aws s3 cp #{file_name} s3://wallet-core/ --acl public-read")
 
 # Upload Cocoapod
 puts 'Publishing...'
 podspec = <<-PODSPEC
 Pod::Spec.new do |s|
-  s.name         = 'PPTrustWalletCore'
+  s.name         = 'CTTrustWalletCore'
   s.version      = '#{version}'
   s.summary      = 'Trust Wallet core data structures and algorithms.'
   s.homepage     = 'https://github.com/taha-husain/pp-wallet-core'
